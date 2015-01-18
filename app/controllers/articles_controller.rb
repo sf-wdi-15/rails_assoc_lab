@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.create(article_params)
+    @article = current_user.articles.create(article_params)
     redirect_to article_path(@article.id)
   end
 
